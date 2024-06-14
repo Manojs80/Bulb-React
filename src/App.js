@@ -1,25 +1,49 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React, { useState } from "react";
+
+
 
 function App() {
+
+function Bulbs() {
+  const [on, setOn] = useState(false);
+
+  const lightOn = () => setOn(true);
+  const lightOff = () => setOn(false);
+ 
+  return (
+    <>
+      <div className={on ? "bulb-on" : "bulb-off"} />
+       <div className='switch'>
+      <button  onClick={lightOn}>ON</button>
+      <button onClick={lightOff}>OFF</button>
+      </div>
+    </>
+  );
+}
+
+ 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Bulbs />
+  </div>
   );
 }
 
 export default App;
+
+
+/* 
+
+ <div>
+        {
+          on? (<div><p>Welcome back, good to see you in here</p></div> ) : (<div><p>second</p></div> )
+        }
+      </div>
+  
+ 
+ 
+ 
+
+*/
